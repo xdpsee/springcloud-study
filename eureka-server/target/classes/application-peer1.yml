@@ -3,14 +3,14 @@ server:
 
 eureka:
   instance:
-    hostname: localhost
+    hostname: peer1
     leaseRenewalIntervalInSeconds: 30
     preferIpAddress: true
     instanceId: ${spring.cloud.client.ipAddress}:${server.port}
   client:
     registerWithEureka: false
-    fetchRegistry: false
+    fetchRegistry: true
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://peer2:8762/eureka/
 
 spring.cloud.config.discovery.enabled: true
